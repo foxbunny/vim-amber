@@ -1,7 +1,12 @@
 " =============================================================================
-" Name: 
+" Name: vim-amber
 " Amber theme for Vim
 " -----------------------------------------------------------------------------
+"
+" This is a theme that simulates the retro PC amber monochrome CRT. It has
+" pretty much no syntax-specific variations in color and is, instead, focusing
+" on providing variations for the editor elements themselves (e.g., line
+" numbers, color column, etc).
 " 
 " This theme can toggle between light and dark mode by setting the `background`
 " variable to "light" or "dark".
@@ -57,11 +62,13 @@ if s:style == "dark"
   hi Cursor guifg=bg guibg=fg
   hi CursorIM guifg=bg guibg=fg
   hi CursorColumn guifg=bg guibg=fg
+  hi CursorLineNr guifg=bg guibg=fg
   hi Visual guifg=bg guibg=fg
   hi VertSplit guifg=bg guibg=fg
   hi StatusLine guifg=bg guibg=fg
 
   " Special
+  hi CursorLine guibg=#2d1208
   hi ColorColumn guibg=#2d1208
 
   " Red
@@ -80,11 +87,13 @@ else
   hi Cursor guifg=bg guibg=fg
   hi CursorIM guifg=bg guibg=fg
   hi CursorColumn guifg=bg guibg=fg
+  hi CursorLineNr guifg=bg guibg=fg
   hi Visual guifg=bg guibg=fg
   hi VertSplit guifg=bg guibg=fg
   hi StatusLine guifg=bg guibg=fg
 
   " Special
+  hi CursorLine guibg=#f37412
   hi ColorColumn guibg=#f37412
   
   " Red
