@@ -49,9 +49,6 @@ if s:style == "dark"
   hi VertSplit guifg=#260d03 guibg=#fc7c14
   hi StatusLine guifg=#260d03 guibg=#fc7c14
 
-  " Special
-  hi LineNr guifg=#ffa837
-
   " Red
   hi SpellBad guifg=#ff0000
   hi Error guifg=#ff0000
@@ -71,9 +68,6 @@ else
   hi Visual guibg=#260d03 guifg=#fc7c14
   hi VertSplit guibg=#260d03 guifg=#fc7c14
   hi StatusLine guibg=#260d03 guifg=#fc7c14
-  
-  " Special
-  hi LineNr guifg=#b75f12
   
   " Red
   hi SpellBad guibg=#ff0000
