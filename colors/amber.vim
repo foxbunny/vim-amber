@@ -47,7 +47,7 @@ if s:style == "dark"
   hi CursorColumn guifg=#260d03 guibg=#fc7c14
   hi Visual guifg=#260d03 guibg=#fc7c14
   hi VertSplit guifg=#260d03 guibg=#fc7c14
-  hi SatusLine guifg=#260d03 guibg=#fc7c14
+  hi StatusLine guifg=#260d03 guibg=#fc7c14
 
   " Special
   hi LineNr guifg=#ffa837
