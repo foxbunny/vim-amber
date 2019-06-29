@@ -70,6 +70,7 @@ if s:style == "dark"
   " Special
   hi CursorLine guibg=#2d1208
   hi ColorColumn guibg=#2d1208
+  hi NonText guibg=#2d1208
 
   " Red
   hi SpellBad guifg=#ff0000
@@ -95,6 +96,7 @@ else
   " Special
   hi CursorLine guibg=#f37412
   hi ColorColumn guibg=#f37412
+  hi NonText guibg=#f37412
   
   " Red
   hi SpellBad guibg=#ff0000
