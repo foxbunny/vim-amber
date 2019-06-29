@@ -1,4 +1,16 @@
+" =============================================================================
+" Name: 
+" Amber theme for Vim
+" -----------------------------------------------------------------------------
+" 
+" This theme can toggle between light and dark mode by setting the `background`
+" variable to "light" or "dark".
+"
+" Some tricks and code borrowed from Lucious theme by Jonathan Filip.
+" =============================================================================
+
 highlight clear
+
 if exists("syntax_on")
   syntax reset
 endif
@@ -42,12 +54,15 @@ if s:style == "dark"
   hi Normal guifg=#fc7c14 guibg=#260d03
 
   " Inverted
-  hi Cursor guifg=#260d03 guibg=#fc7c14
-  hi CursorIM guifg=#260d03 guibg=#fc7c14
-  hi CursorColumn guifg=#260d03 guibg=#fc7c14
-  hi Visual guifg=#260d03 guibg=#fc7c14
-  hi VertSplit guifg=#260d03 guibg=#fc7c14
-  hi StatusLine guifg=#260d03 guibg=#fc7c14
+  hi Cursor guifg=bg guibg=fg
+  hi CursorIM guifg=bg guibg=fg
+  hi CursorColumn guifg=bg guibg=fg
+  hi Visual guifg=bg guibg=fg
+  hi VertSplit guifg=bg guibg=fg
+  hi StatusLine guifg=bg guibg=fg
+
+  " Special
+  hi ColorColumn guibg=#2d1208
 
   " Red
   hi SpellBad guifg=#ff0000
@@ -62,12 +77,15 @@ else
   hi Normal guibg=#fc7c14 guifg=#260d03
 
   " Inverted
-  hi Cursor guibg=#260d03 guifg=#fc7c14
-  hi CursorIM guibg=#260d03 guifg=#fc7c14
-  hi CursorColumn guibg=#260d03 guifg=#fc7c14
-  hi Visual guibg=#260d03 guifg=#fc7c14
-  hi VertSplit guibg=#260d03 guifg=#fc7c14
-  hi StatusLine guibg=#260d03 guifg=#fc7c14
+  hi Cursor guifg=bg guibg=fg
+  hi CursorIM guifg=bg guibg=fg
+  hi CursorColumn guifg=bg guibg=fg
+  hi Visual guifg=bg guibg=fg
+  hi VertSplit guifg=bg guibg=fg
+  hi StatusLine guifg=bg guibg=fg
+
+  " Special
+  hi ColorColumn guibg=#f37412
   
   " Red
   hi SpellBad guibg=#ff0000
