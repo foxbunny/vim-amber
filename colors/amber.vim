@@ -87,8 +87,13 @@ let s:inverted_items = [
       \ "CursorColunmn",
       \ "CursorLineNr",
       \ "Visual", 
-      \ "VertSplit",
       \ "StatusLine"
+      \ ]
+
+let s:sub_inverted_items = [
+      \ "VertSplit",
+      \ "StatusLineNC",
+      \ "PmenuSel"
       \ ]
 
 let s:special_items = [
@@ -108,10 +113,12 @@ if s:style == "dark"
   let s:fg="#fc9505"
   let s:bg="#140b05"
   let s:special="#1c1008"
+  let s:subbg="#c56306"
 else
   let s:fg="#140b05"
   let s:bg="#fc9505"
   let s:special="#e58806"
+  let s:subbg="#9e5d07"
 endif
 
 hi clear Normal
@@ -123,6 +130,10 @@ endfor
 
 for s:item in s:inverted_items
   exec "hi " . s:item . " guifg=" . s:bg . " guibg=" . s:fg 
+endfor
+
+for s:item in s:sub_inverted_items
+  exec "hi " . s:item . " guifg=" . s:bg . " guibg=" . s:subbg 
 endfor
 
 for s:item in s:special_items
