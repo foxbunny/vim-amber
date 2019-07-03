@@ -20,85 +20,115 @@ if exists("syntax_on")
   syntax reset
 endif
 
-let s:style = &background
 let g:colors_name="amber"
 
-let s:normal_items = [
-      \ "ColorColumn", "Comment", "Conceal", "Constant", "Cursor", "CursorColumn",
-      \ "CursorIM", "CursorLine", "CursorLineNr", "DiffAdd", "DiffChange",
-      \ "DiffDelete", "Directory", "Error", "ErrorMsg", "Identifier",
-      \ "IncSearch", "LineNr", "MatchParen", "ModeMsg", "MoreMsg",
-      \ "NonText", "Pmenu", "PmenuSbar", "PmenuSel",
-      \ "PmenuThumb", "PreProc", "Question", "Search", "SignColumn",
-      \ "Special", "SpecialKey", "Statement", "StatusLineNC", "TabLine",
-      \ "TabLineFill", "Todo", "Type", "VertSplit", "Visual",
-      \ "WarningMsg", "WildMenu",
+let s:everything = [
+      \ "ColorColumn",
+      \ "Comment",
+      \ "Conceal",
+      \ "Constant",
+      \ "Cursor", 
+      \ "CursorColumn",
+      \ "CursorIM",
+      \ "CursorLine",
+      \ "CursorLineNr",
+      \ "CursorLineNr",
+      \ "DiffAdd", 
+      \ "DiffChange",
+      \ "DiffDelete",
+      \ "DiffText",
+      \ "Directory",
+      \ "Error",
+      \ "ErrorMsg", 
+      \ "FoldColumn",
+      \ "Folded", 
+      \ "Identifier",
+      \ "IncSearch",
+      \ "LineNr",
+      \ "MatchParen",
+      \ "ModeMsg",
+      \ "MoreMsg",
+      \ "NonText",
+      \ "Normal",
+      \ "Pmenu",
+      \ "PmenuSbar",
+      \ "PmenuSel",
+      \ "PmenuThumb",
+      \ "PreProc",
+      \ "Question",
+      \ "Search",
+      \ "SignColumn",
+      \ "Special",
+      \ "SpecialKey",
+      \ "SpellBad", 
+      \ "SpellCap",  
+      \ "SpellLocal", 
+      \ "SpellRare",
+      \ "Statement",
+      \ "StatusLine",
+      \ "StatusLineNC",
+      \ "TabLine",
+      \ "TabLineFill",
+      \ "TabLineSel",
+      \ "Title",
+      \ "Todo",
+      \ "Type",
+      \ "Underlined", 
+      \ "VertSplit",
+      \ "Visual",
+      \ "VisualNOS",
+      \ "WarningMsg",
+      \ "WildMenu"
       \ ]
 
-let s:bold_items = [
-      \ "DiffText", "FoldColumn", "Folded", "StatusLine", "TabLineSel",
-      \ "Title", "CursorLineNr",
+let s:inverted_items = [
+      \ "Cursor",
+      \ "CursorIM",
+      \ "CursorColunmn",
+      \ "CursorLineNr",
+      \ "Visual", 
+      \ "VertSplit",
+      \ "StatusLine"
       \ ]
 
-let s:underline_items = [
-      \ "Underlined", "VisualNOS"
+let s:special_items = [
+      \ "CursorLine",
+      \ "ColorColumn",
+      \ "NonText"
       \ ]
 
-let s:undercurl_items = [
-      \ "SpellBad", "SpellCap", "SpellLocal", "SpellRare"
+let s:error_items = [
+      \ "SpellBad",
+      \ "Error"
       \ ]
+
+let s:style = &background
+
+if s:style == "dark"
+  let s:fg="#fc9505"
+  let s:bg="#140b05"
+  let s:special="#1c1008"
+else
+  let s:fg="#140b05"
+  let s:bg="#fc9505"
+  let s:special="#e58806"
+endif
 
 hi clear Normal
-if s:style == "dark"
-  for s:item in s:normal_items + s:bold_items + s:underline_items + s:undercurl_items
-      exec "hi " . s:item . " guifg=#fc9505 guibg=#140b05 gui=none"
-                  \ . " ctermfg=NONE ctermbg=NONE cterm=none term=none"
-  endfor
 
-  " Normal text
-  hi Normal guifg=#fc9505 guibg=#140b05
+for s:item in s:everything
+  exec "hi " . s:item . " guifg=" . s:fg . " guibg=" . s:bg .
+        \ " gui=none ctermfg=NONE ctermbg=NONE cterm=none term=none"
+endfor
 
-  " Inverted
-  hi Cursor guifg=bg guibg=fg
-  hi CursorIM guifg=bg guibg=fg
-  hi CursorColumn guifg=bg guibg=fg
-  hi CursorLineNr guifg=bg guibg=fg
-  hi Visual guifg=bg guibg=fg
-  hi VertSplit guifg=bg guibg=fg
-  hi StatusLine guifg=bg guibg=fg
+for s:item in s:inverted_items
+  exec "hi " . s:item . " guifg=" . s:bg . " guibg=" . s:fg 
+endfor
 
-  " Special
-  hi CursorLine guibg=#1c1008
-  hi ColorColumn guibg=#1c1008
-  hi NonText guibg=#1c1008
+for s:item in s:special_items
+  exec "hi " . s:item . " guibg=" . s:special
+endfor
 
-  " Red
-  hi SpellBad guifg=#ff0000
-  hi Error guifg=#ff0000
-else
-  for s:item in s:normal_items + s:bold_items + s:underline_items + s:undercurl_items
-      exec "hi " . s:item . " guibg=#fc9505 guifg=#140b05 gui=none"
-                  \ . " ctermfg=NONE ctermbg=NONE cterm=none term=none"
-  endfor
-
-  " Normal text
-  hi Normal guibg=#fc9505 guifg=#140b05
-
-  " Inverted
-  hi Cursor guifg=bg guibg=fg
-  hi CursorIM guifg=bg guibg=fg
-  hi CursorColumn guifg=bg guibg=fg
-  hi CursorLineNr guifg=bg guibg=fg
-  hi Visual guifg=bg guibg=fg
-  hi VertSplit guifg=bg guibg=fg
-  hi StatusLine guifg=bg guibg=fg
-
-  " Special
-  hi CursorLine guibg=#e58806
-  hi ColorColumn guibg=#e58806
-  hi NonText guibg=#e58806
-  
-  " Red
-  hi SpellBad guibg=#ff0000
-  hi Error guibg=#ff0000
-endif
+for s:item in s:error_items
+  exec "hi " . s:item . " guifg=#ff0000"
+endfor
